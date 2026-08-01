@@ -3,7 +3,7 @@
 *{
     padding: 0;
     margin: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
 }
 
 h1,h2,span{
@@ -19,4 +19,33 @@ h3,h4,p{
     width: 100%;
     overflow: hidden;
     background-color: blue;
+}
+
+.top-section{
+    height: 55%;
+    width: 100%;
+    background-color: red;
+}
+
+.bottom-section{
+    height: 45%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.bottom-section img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    animation: landing-image-animation 1.5s cubic-bezier(0.165, .88, 0.44, 1) forwards;
+}
+
+@keyframes landing-image-animation{
+    from{
+        scale: 1.8;
+    }
+    to{
+        scale: 1;
+    }
 }
