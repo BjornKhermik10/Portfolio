@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* ==========================================
+   1. RESET & FONTS
+   ========================================== */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, span {
+    font-family: "Google Sans", sans-serif;
+}
+
+h3, h4, p, a {
+    font-family: "Lato", sans-serif;
+}
+
+/* ==========================================
+   2. SUBPAGE LAYOUT & NAV
+   ========================================== */
+.projects-page {
+    min-height: 100vh;
+    width: 100%;
+    background-color: white;
+}
+
+.projects-top-section {
+    width: 100%;
+    background-color: white;
+    padding-bottom: 2rem;
+}
+
+/* Compact Navbar - Side by Side */
+.projects-top-section nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 0 2rem;
+}
+
+.p-nav-left {
+    display: flex;
+    align-items: center;
+    animation: landing-para-animation 2s ease-out;
+}
+
+/* Shared Nav Link Hover Effect (same as index.html) */
+.nav-links {
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-links::before {
+    content: "";
+    height: 4px;
+    width: 0vw;
+    top: 0%;
+    transition: width 0.6s ease-out;
+    background-color: black;
+}
+
+.nav-links:hover::before {
+    width: 1.5vw;
+    transform-origin: left;
+}
+
+.nav-links h3 {
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.p-nav-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+.p-nav-right p a {
+    color: black;
+    font-size: 1.5rem;
+    text-decoration: none;
+    animation: landing-para-animation 2s ease-out;
+}
+
+.p-nav-right p a:hover {
+    text-decoration: underline;
+}
+
+/* Subpage Heading */
+.projects-heading {
+    width: 100%;
+    padding: 3rem 2rem 0 2rem;
+}
+
+.projects-heading h1 {
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    color: black;
+    font-weight: 600;
+    line-height: 0.9;
+    animation: projects-text-animation 4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.projects-bottom-section {
+    width: 100%;
+    padding: 0rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card {
+    display: flex;
+    height: 25vh;
+    width: 100%;
+    background-color: white;
+    border-bottom: 2px solid black;
+}
+
+.project-number {
+    height: 100%;
+    width: 55%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+.project-number p {
+    font-size: 10rem;
+    line-height: 0.7;
+    font-weight: 450;
+    letter-spacing: -0.6rem;
+}
+
+.project-description {
+    height: 100%;
+    width: 45%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 0rem;
+    font-size: 1.25rem;
+}
+
+.project-description p {
+    font-size: 1.25rem;
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+.project-description a {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.project-image {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 1.5rem;
+}
+
+.project-image img {
+    width: 150px;
+    padding: 0;
+    border-radius: 0.5rem;
+}
+
+/* ==========================================
+   3. KEYFRAME ANIMATIONS
+   ========================================== */
+@keyframes landing-para-animation {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes projects-text-animation {
+    from {
+        opacity: 0;
+        transform: translateX(60%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ==========================================
+   4. RESPONSIVE MEDIA QUERIES
+   ========================================== */
+@media (max-width: 768px) {
+    .projects-top-section nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 1.5rem 1.5rem 0 1.5rem;
+    }
+
+    .projects-heading {
+        padding: 2rem 1.5rem 0 1.5rem;
+    }
+}
