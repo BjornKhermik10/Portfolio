@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
+/* ==========================================
+   1. RESET & FONTS
+   ========================================== */
 * {
     padding: 0;
     margin: 0;
@@ -11,14 +14,17 @@ h1, h2, span {
 }
 
 h3, h4, p, a {
-     font-family: "Lato", sans-serif;
+    font-family: "Lato", sans-serif;
 }
 
+/* ==========================================
+   2. LANDING PAGE LAYOUT (index.html)
+   ========================================== */
 .landing-page {
     height: 100vh;
     width: 100%;
     overflow: hidden;
-    background-color: rgb(12, 0, 175);
+    background-color: #0F0099;
     display: flex;
     flex-direction: column;
 }
@@ -26,13 +32,32 @@ h3, h4, p, a {
 .top-section {
     height: 55%;
     width: 100%;
-    background-color: rgb(12, 0, 175);
+    background-color: #0F0099;
 }
 
+.bottom-section {
+    height: 45%;
+    width: 100%;
+    flex: 1;
+    min-height: 350px;
+    overflow: hidden;
+}
+
+.bottom-section img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    animation: landing-image-animation 2s cubic-bezier(0.165, .88, 0.44, 1) forwards;
+}
+
+/* ==========================================
+   3. LANDING PAGE NAVIGATION
+   ========================================== */
 .top-section nav {
     height: 35%;
     width: 100%;
-    background-color: rgb(12, 0, 175);
+    background-color: #0F0099;
     display: flex;
     padding: 0 2rem;
 }
@@ -40,14 +65,16 @@ h3, h4, p, a {
 .top-section nav .nav-left {
     height: 100%;
     width: 52%;
-    background-color: rgb(12, 0, 175);
+    background-color: #0F0099;
     display: flex;
     flex-direction: column;
     padding-top: 2rem;
     gap: 0.2rem;
     color: whitesmoke;
+    animation: landing-para-animation 2s ease-out;
 }
 
+/* Shared Nav Link Hover Effect */
 .nav-links {
     text-decoration: none;
     cursor: pointer;
@@ -82,7 +109,7 @@ h3, h4, p, a {
 .top-section nav .nav-right {
     height: 100%;
     width: 48%;
-    background-color: rgb(12, 0, 175);
+    background-color: #0F0099;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -121,95 +148,179 @@ h3, h4, p, a {
     animation: landing-text-animation 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.bottom-section {
-    height: 45%;
+/* ==========================================
+   4. SUBPAGE LAYOUT & NAV (projects.html)
+   ========================================== */
+.projects-page {
+    min-height: 100vh;
     width: 100%;
-    flex: 1;
-    min-height: 350px;
-    overflow: hidden;
+    background-color: #0F0099;
 }
 
-.bottom-section img {
-    height: 100%;
+.projects-top-section {
     width: 100%;
-    object-fit: cover;
-    object-position: center;
-    animation: landing-image-animation 2s cubic-bezier(0.165, .88, 0.44, 1) forwards;
+    background-color: #0F0099;
+    padding-bottom: 2rem;
 }
 
+/* Compact Navbar - Side by Side */
+.projects-top-section nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 0 2rem;
+}
+
+.p-nav-left {
+    display: flex;
+    align-items: center;
+    animation: landing-para-animation 2s ease-out;
+}
+
+.p-nav-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+.p-nav-right p a {
+    color: whitesmoke;
+    font-size: 1.5rem;
+    text-decoration: none;
+    animation: landing-para-animation 2s ease-out;
+}
+
+.p-nav-right p a:hover {
+    text-decoration: underline;
+}
+
+/* Subpage Heading */
+.projects-heading {
+    width: 100%;
+    padding: 3rem 2rem 0 2rem;
+}
+
+.projects-heading h1 {
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    color: whitesmoke;
+    font-weight: 500;
+    line-height: 0.9;
+    animation: projects-text-animation 4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.projects-bottom-section {
+    width: 100%;
+    padding: 2rem;
+    background-color: #BDDCFD;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* ==========================================
+   5. KEYFRAME ANIMATIONS
+   ========================================== */
 @keyframes landing-para-animation {
-    from{
+    from {
         opacity: 0;
     }
-    to{
+    to {
         opacity: 1;
     }
-
 }
 
 @keyframes landing-text-animation {
-    from{
+    from {
         transform: translateY(120%);
     }
-    to{
+    to {
         transform: translateY(0);
     }
 }
 
-@keyframes landing-image-animation{
-    from{
+@keyframes landing-image-animation {
+    from {
         scale: 1.8;
     }
-    to{
+    to {
         scale: 1;
     }
 }
 
+@keyframes projects-text-animation {
+    from {
+        opacity: 0;
+        transform: translateX(60%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ==========================================
+   6. RESPONSIVE MEDIA QUERIES
+   ========================================== */
 @media (max-width: 768px) {
-    .landing-page{
+    /* Home Page Responsive */
+    .landing-page {
         height: auto;
         min-height: 100vh;
         overflow-y: auto;
     }
 
-    .top-section{
+    .top-section {
         height: auto;
         padding-bottom: 2rem;
     }
 
-    .top-section nav{
+    .top-section nav {
         flex-direction: column;
         height: auto;
         padding: 1.5rem 1.5rem 0 1.5rem;
         gap: 1.5rem;
-    }    
+    }
 
     .top-section nav .nav-left,
-    .top-section nav .nav-right{
+    .top-section nav .nav-right {
         width: 100%;
         height: auto;
         padding-top: 0;
     }
 
-    .top-section nav .nav-right{
+    .top-section nav .nav-right {
         align-items: flex-start;
     }
 
-    .top-section .heading{
+    .top-section .heading {
         height: auto;
         padding: 2rem 1.5rem 0 1.5rem;
     }
 
-    .top-section .heading h1{
+    .top-section .heading h1 {
         font-size: clamp(3.5rem, 12vw, 6rem);
         line-height: 1;
     }
 
-    .nav-links:hover::before{
+    .nav-links:hover::before {
         width: 2rem;
     }
 
-    .bottom-section{
+    .bottom-section {
         height: 350px;
+    }
+
+    /* Projects Page Responsive */
+    .projects-top-section nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 1.5rem 1.5rem 0 1.5rem;
+    }
+
+    .projects-heading {
+        padding: 2rem 1.5rem 0 1.5rem;
     }
 }
