@@ -139,9 +139,20 @@ h3, h4, p, a {
     padding: 2.5rem clamp(1.5rem, 4vw, 5rem);
     align-items: start;                    /* required for the sticky text to work */
 
-    /* Purple box: replace these with your own values if they differ */
-    background-color: #5e1f52;
+    background-color: var(--project-background-color, #5e1f52);
     border-radius: 12px;
+}
+
+.project-details-page--dear-diary {
+    --project-background-color: #1714a3;
+}
+
+.project-details-page--muvico {
+    --project-background-color: #5e1f52;
+}
+
+.project-details-heading h1 {
+    color: var(--project-background-color, #5e1f52);
 }
 
 .project-details-description {
