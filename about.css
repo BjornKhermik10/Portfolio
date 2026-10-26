@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* ==========================================
+   1. RESET & FONTS
+   ========================================== */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, span {
+    font-family: "Google Sans", sans-serif;
+}
+
+h3, h4, p, a, li {
+    font-family: "Lato", sans-serif;
+}
+
+/* ==========================================
+   2. NAVIGATION
+   ========================================== */
+.about-page {
+    min-height: 100vh;
+    width: 100%;
+    background-color: white;
+}
+
+.projects-top-section {
+    width: 100%;
+    padding-bottom: 2rem;
+    background-color: white;
+}
+
+.projects-top-section nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 0 2rem;
+}
+
+.p-nav-left {
+    display: flex;
+    align-items: center;
+    animation: fade-in 2s ease-out;
+}
+
+.nav-links {
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-links::before {
+    content: "";
+    height: 4px;
+    width: 0vw;
+    top: 0%;
+    transition: width 0.6s ease-out;
+    background-color: black;
+}
+
+.nav-links:hover::before {
+    width: 1.5vw;
+    transform-origin: left;
+}
+
+.nav-links h3 {
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 400;
+}
+
+.p-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.p-nav-right p a {
+    color: black;
+    font-size: 1.5rem;
+    text-decoration: none;
+    animation: fade-in 2s ease-out;
+}
+
+.p-nav-right p a:hover {
+    text-decoration: underline;
+}
+
+.section-divider {
+    border: 1px solid black;
+    margin: 2rem 0 0;
+}
+
+/* ==========================================
+   3. HEADING
+   ========================================== */
+.about-heading {
+    text-align: center;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 600;
+    color: black;
+    padding: 1.5rem 2rem 2rem;
+}
+
+/* ==========================================
+   4. ABOUT CONTENT GRID
+   ========================================== */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding: 1rem clamp(1rem, 6vw, 6rem) 5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.about-image-container {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background-color: #f4f4f4;
+}
+
+.about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.about-subheading {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 500;
+    color: black;
+    line-height: 1.2;
+}
+
+.about-bio {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #333333;
+    font-weight: 300;
+}
+
+.about-details {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 2rem;
+}
+
+.detail-group h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.detail-group p {
+    font-size: 1.05rem;
+    color: #555555;
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    font-size: 1.1rem;
+    color: black;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+    opacity: 0.7;
+}
+
+/* ==========================================
+   5. KEYFRAME ANIMATIONS
+   ========================================== */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ==========================================
+   6. RESPONSIVE MEDIA QUERIES
+   ========================================== */
+@media (max-width: 868px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-top-section nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 1.5rem 1.5rem 0 1.5rem;
+    }
+
+    .about-heading {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+}
